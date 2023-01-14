@@ -13,7 +13,7 @@ public class ConsultasProducto extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO producto (codigo, nombre, precio, cantidad) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO producto (codigo, nombre, precio, cantidad, id) VALUES(?,?,?,?,?)";
     
         try{
          ps = con.prepareStatement(sql);
@@ -21,6 +21,7 @@ public class ConsultasProducto extends Conexion {
          ps.setString(2, pro.getNombre());
          ps.setDouble(3, pro.getPrecio());
          ps.setInt(4, pro.getCantidad());
+         ps.setInt(5, pro.getId());
          ps.execute();
          return true;
          
